@@ -26,7 +26,7 @@ Simple solutions such as `grep` and a bash `for` loop are not efficient enough a
 In order to utilize very easy multi-threading later on I've split the 91GB into roughly 256MB parts.
 
 ```bash
-split -C 268435456 --additional-suffix=.part
+split rockyou2021.txt -C 268435456 --additional-suffix=.part
 ```
 That operation alone took about 10 minutes on my computer but is considered preprocessing for now.
 
