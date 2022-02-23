@@ -36,10 +36,10 @@ To compile and execute the program:
 
 ```bash
 gcc -O3 sort-rockyou.c 
-for i in $(ls x{a..o}{a..z}.part 2>/dev/null); do time sh -c "./a.out $i" &
+time ./threader.sh
 ```
 
-**Note:** The code can be optimized in a lot of ways but sets a foundation in the processing principles of this huge wordlist.
+**Note:** The code can be optimized in a lot of ways but sets a foundation in the processing principles of this huge wordlist. One could attempt to utilize memory mapped files for example.
 
 ## Results
 
@@ -56,7 +56,7 @@ Processing all RockYou2021 parts took a total of `28.431` seconds.
 The average across multiple tests continued to be 28 seconds.
 
 ---
-For comparison, processing the *old* `rockyou.txt` (~130MB) (minor code adaptions necessary - need to set the MAX_LINE_LENGTH to ~290!) took 1 second:
+For comparison, processing the *old* `rockyou.txt` (~130MB) (update MAX_ and MIN_LINE_LEN) took 1 second:
 ```
 time sh -c './a.out rockyou.txt'  0.90s user 0.11s system 99% cpu 1.008 total
 ```
