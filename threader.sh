@@ -30,7 +30,7 @@ run_with_lock(){
     )&
 }
 
-N=6
+N=6 # set the max amount of jobs to execute in parallel (alternatively we could've used a tool such as `parallel`)
 open_sem $N
 
 echo "(Deleting previous results...)"
