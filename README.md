@@ -36,6 +36,11 @@ To compile and execute the program:
 
 ```bash
 gcc -O3 sort-rockyou.c 
+for i in $(ls x{a..o}{a..z}.part 2>/dev/null); do ./a.out $i & done
+```
+
+Another way (that turned out to be slower but allows for more control over how many jobs we start in parallel) is to use the `threader.sh`:
+```bash
 time ./threader.sh
 ```
 
@@ -55,11 +60,16 @@ Processing all RockYou2021 parts took a total of `28.431` seconds.
 
 The average across multiple tests continued to be 28 seconds.
 
+(The `threader.sh` took 1:17 minutes with 64 parallel jobs.)
+
 ---
 For comparison, processing the *old* `rockyou.txt` (~130MB) (update MAX_ and MIN_LINE_LEN) took 1 second:
 ```
 time sh -c './a.out rockyou.txt'  0.90s user 0.11s system 99% cpu 1.008 total
 ```
+
+
+
 ---
 
 **Note:** Using a more casual system the execution time lies somewhere between 5 and 15 minutes generally. More RAM does *not* help (the program isn't RAM intensive currently) while more CPU power and a faster disk medium will help increase performance.
